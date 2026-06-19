@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+@import './styles/mobile.css';
+
+:root {
+  /* Blue primary */
+  --primary: #0047AB;
+  --primary-dark: #003080;
+  --primary-light: #3A6FD8;
+  --accent: #CC0000;
+  --accent-dark: #990000;
+
+  /* Surfaces */
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-hover: #FFFFFF;
+  --sidebar-bg: #002366;
+  --sidebar-border: #003080;
+
+  /* Text */
+  --text-primary: #CC0000;
+  --text-muted: #0047AB;
+  --text-on-dark: #FFFFFF;
+  --text-on-dark-muted: #B0C4DE;
+
+  /* Borders & effects */
+  --border: #DDEEFF;
+  --border-strong: #0047AB;
+  --danger: #CC0000;
+  --success: #006400;
+  --warning: #0047AB;
+
+  /* Sharp corners — cards & buttons */
+  --radius: 0;
+  --radius-lg: 0;
+  --radius-sm: 0;
+  --radius-icon: 12px;
+  --radius-avatar: 50%;
+  --icon-circle-border: 2px dotted;
+
+  --shadow: 4px 4px 0 #0047AB;
+  --shadow-lg: 8px 8px 0 #0047AB;
+  --font: 'DM Sans', system-ui, -apple-system, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.6;
+  color: #FFFFFF;
+  background: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: inherit;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s, box-shadow 0.15s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: 4px 4px 0 #dc2626;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-dark);
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 #FFFFFF;
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #3B82F6;
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text-primary);
+  border: 2px solid var(--border);
+  box-shadow: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--surface);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* Status badges — sharp tags */
+.status-badge {
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 0.3rem 0.625rem;
+  border-radius: var(--radius);
+  white-space: nowrap;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.status-pending {
+  background: #dc2626;
+  color: #2563EB;
+  border-color: #dc2626;
+}
+
+.status-in-progress {
+  background: #eadde6;
+  color: #2563EB;
+  border-color: #FFFFFF;
+}
+
+.status-completed {
+  background: #2563EB;
+  color: #3B82F6;
+  border-color: #FFFFFF;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* Page header */
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.page-header h1 {
+  margin: 0 0 0.375rem;
+  font-size: 1.875rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.page-header p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+.page-header::before {
+  content: none;
+}
+
+/* Dotted circle icon wrappers */
+.icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: var(--icon-circle-border) currentColor;
+  flex-shrink: 0;
+  background: var(--primary-light);
+}
+
+.icon-circle-sm {
+  width: 32px;
+  height: 32px;
+  font-size: 0.875rem;
+}
+
+.icon-circle-md {
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+}
+
+.icon-circle-lg {
+  width: 48px;
+  height: 48px;
+  font-size: 1.125rem;
+}
+
+.icon-circle-xl {
+  width: 56px;
+  height: 56px;
+  font-size: 1.375rem;
+}
+
+.section-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-header h2 svg {
+  color: var(--primary);
+}
